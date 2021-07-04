@@ -1,0 +1,116 @@
+#include <iostream>
+#include <ctime>
+#include <iomanip>
+
+using namespace std;
+int return_max(int a, int b, int c) {
+if ((a >= b) && (a >= c))
+return a;
+if ((b >= a) && (b >= c))
+return b;
+if ((c >= a) && (c >= b))
+return c;
+
+cout << "Возврат";
+return 0;
+}
+
+void first_task() {
+
+int a,b,c;
+cout << "a = ";
+cin >> a;
+cout << "b = ";
+cin >> b;
+cout << "c = ";
+cin >> c;
+
+cout << "max = " << return_max(a, b, c) << endl;
+}
+
+
+//-----------------------------------------------------------------------
+
+
+int num_in_border(int a, int b) {
+double num;
+
+do {
+cout << "Номер между " << a << " и " << b << " : ";
+cin >> num;
+
+if ( !((float)( (int) num ) == num) ) {
+cout << "Не целое число.Возврат!" << endl;
+return 0;
+}
+
+} while (!((a <= num) && (num <= b)));
+
+return num;
+}
+
+void second_task() {
+
+int a,b;
+
+
+cout << "a = ";
+cin >> a;
+cout << "b = ";
+cin >> b;
+
+cout << num_in_border(a, b) << endl;
+}
+
+
+//------------------------------------------------------------------------------
+
+
+void sort_arr(int *arr, int size) {
+int buffer;
+int prev_ind;
+
+for (int i = 1; i < size; i++) {
+buffer = arr[i];
+prev_ind = i - 1;
+while (prev_ind >= 0 && arr[prev_ind] > buffer) {
+arr[prev_ind + 1] = arr[prev_ind];
+arr[prev_ind] = buffer;
+prev_ind--;
+}
+}
+}
+
+
+void third_task() {
+srand(time(NULL));
+
+int size;
+
+cout << "Кол-во элементов массива : ";
+cin >> size;
+
+int *arr = new int [size];
+
+for (int i; i < size; i++) {
+arr[i] = rand() % 100;
+cout << setw(3) << arr[i] << " ";
+}
+cout << endl;
+
+sort_arr(arr, size);
+
+for (int i; i < size; i++) {
+cout << setw(3) << arr[i] << " ";
+}
+cout << endl;
+
+delete [] arr;
+}
+
+
+int main() {
+first_task();
+second_task();
+third_task();
+}

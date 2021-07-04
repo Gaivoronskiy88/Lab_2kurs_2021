@@ -1,0 +1,55 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+void first1() {
+
+double a,b,result;
+cout << "a = ";
+cin >> a;
+cout << "b = ";
+cin >> b;
+
+result = 2 / ((1 / a) + (1 / b));
+
+cout << result << endl;
+}
+
+
+
+void swapers(double *a, double *b, double *c) {
+if (*a < *b)
+swap(*a, *b);
+if (*a < *c)
+swap(*a, *c);
+if (*b < *c)
+swap(*b, *c);
+}
+
+//-----------------------------------------------------------------------
+
+void second2() {
+
+double a;
+double b;
+double c;
+
+cout << "a = ";
+cin >> a;
+cout << "b = ";
+cin >> b;
+cout << "c = ";
+cin >> c;
+
+cout << a << " " << b << " " << c << endl;
+swapers(&a, &b, &c);
+cout << a << " " << b << " " << c << endl;
+}
+
+
+int main() {
+first1();
+second2();
+return 0;
+}
